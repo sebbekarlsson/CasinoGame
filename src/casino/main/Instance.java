@@ -1,7 +1,14 @@
 package casino.main;
 
 public abstract class Instance {
-	protected int x,y,z = 0;
+	protected float x,y,z = 0;
+	
+	
+	public Instance(float x, float y, float z){
+		this.x = x;
+		this.y = y;
+		this.z = z;
+	}
 	
 	public void update(){
 		tick();

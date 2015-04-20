@@ -46,11 +46,15 @@ public class Game {
 			GL11.glClearColor(0, 0, 0, 1);
 			
 			
+			if(getCurrentScene().inited == false){
+				getCurrentScene().init();
+				getCurrentScene().inited = true;
+			}
+			
 			GL11.glColor3f(1, 1, 1);
 			Camera camera = getCurrentScene().camera;
 			GL11.glPushMatrix();
-				GL11.glTranslatef(camera.x, camera.y, camera.z);
-					GL11.glTranslatef(camera.x, camera.y, camera.z);
+				GL11.glTranslatef(-camera.x, -camera.y, -camera.z);
 					camera.update();
 					getCurrentScene().update();
 			GL11.glPopMatrix();
