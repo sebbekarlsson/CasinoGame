@@ -3,7 +3,8 @@ package casino.main;
 import org.lwjgl.input.Keyboard;
 
 public class Camera {
-	public float x, y, z;
+	public float x, y;
+	public float z = 1f;
 	
 	public void update(){
 		tick();
@@ -24,6 +25,14 @@ public class Camera {
 		
 		if(Keyboard.isKeyDown(Keyboard.KEY_DOWN)){
 			y += 10f;
+		}
+		
+		if(Keyboard.isKeyDown(Keyboard.KEY_Q)){
+			z += 0.1f;
+		}
+		
+		if(Keyboard.isKeyDown(Keyboard.KEY_E)){
+			z -= 0.1f;
 		}
 	}
 	

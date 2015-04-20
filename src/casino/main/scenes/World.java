@@ -10,7 +10,7 @@ import casino.main.scenes.world.Tile;
 
 
 public class World extends Scene {
-	public Chunk[][] chunks = new Chunk[16][16];
+	public Chunk[][] chunks = new Chunk[256][256];
 	
 	@Override
 	public void init() {

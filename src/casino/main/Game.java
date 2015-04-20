@@ -17,6 +17,7 @@ public class Game {
 	public static Dimension FRAMESIZE = new Dimension(width * scale, height * scale);
 	public static ArrayList<Scene> scenes = new ArrayList<Scene>();
 	public static int SCENEINDEX = 0;
+	static float zoom = 1f;
 	
 	
 	public static void main(String[] args){
@@ -37,11 +38,12 @@ public class Game {
 		
 		GL11.glMatrixMode(GL11.GL_PROJECTION);
         GL11.glLoadIdentity();
-        //GLU.gluPerspective(70, (float)Display.getWidth()/Display.getHeight(), -1, 1000);
-        GL11.glOrtho(0, Display.getWidth(), Display.getHeight(), 0,-1,1000 );
+        //GLU.gluPerspective(70f, (float)Display.getWidth()/Display.getHeight(), 1f, 100f);
+        GL11.glOrtho(0, Display.getWidth(), Display.getHeight(), 0,-1f,1000 );
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
      	GL11.glLoadIdentity();
      	GL11.glEnable(GL11.GL_TEXTURE_2D);
+     	GL11.glEnable(GL11.GL_DEPTH_TEST);
 		while(!Display.isCloseRequested()){
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
 			GL11.glClearColor(0, 0, 0, 1);
@@ -54,11 +56,17 @@ public class Game {
 			
 			GL11.glColor3f(1, 1, 1);
 			Camera camera = getCurrentScene().camera;
+			
 			GL11.glPushMatrix();
-				GL11.glTranslatef(-camera.x, -camera.y, -camera.z);
+				GL11.glTranslatef(-camera.x, -camera.y,0f);
+					GL11.glTranslated(((camera.x)+Display.getWidth()/2), ((camera.y)+Display.getHeight()/2), 0f);
+						GL11.glScaled(camera.z, camera.z, 1);
+					GL11.glTranslated(-((camera.x)+Display.getWidth()/2), -((camera.y)+Display.getHeight()/2), 0f);
 					camera.update();
 					getCurrentScene().update();
 			GL11.glPopMatrix();
+			
+			zoom += 0.01f;
 			
 			
 			Display.sync(60);
