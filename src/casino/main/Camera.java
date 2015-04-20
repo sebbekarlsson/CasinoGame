@@ -3,7 +3,7 @@ package casino.main;
 import org.lwjgl.input.Keyboard;
 
 public class Camera {
-	protected float x,y,z = 0;
+	public float x, y, z;
 	
 	public void update(){
 		tick();
