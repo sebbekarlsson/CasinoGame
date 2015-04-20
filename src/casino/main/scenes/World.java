@@ -1,16 +1,20 @@
 package casino.main.scenes;
 
+import java.util.Random;
+
 import org.lwjgl.opengl.Display;
 
 import casino.main.Camera;
 import casino.main.Game;
 import casino.main.Scene;
+import casino.main.instances.entities.Particle;
 import casino.main.scenes.world.Chunk;
 import casino.main.scenes.world.Tile;
 
 
 public class World extends Scene {
 	public Chunk[][] chunks = new Chunk[256][256];
+	static Random random = new Random();
 	
 	@Override
 	public void init() {
@@ -33,6 +37,10 @@ public class World extends Scene {
 				}
 			}
 		}
+		
+		
+			instance_create(new Particle(random.nextInt(600),random.nextInt(600),0f));
+		
 		
 	}
 

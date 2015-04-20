@@ -46,18 +46,6 @@ public abstract class Entity extends Instance {
 		tick();
 		draw();
 	}
-
-	@Override
-	public void tick() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void draw() {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	public void addForce(float direction, float force){
 		dx += Math.cos(direction) * force;
