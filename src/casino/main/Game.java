@@ -41,6 +41,7 @@ public class Game {
         GL11.glOrtho(0, Display.getWidth(), Display.getHeight(), 0,-1,1000 );
         GL11.glMatrixMode(GL11.GL_MODELVIEW);
      	GL11.glLoadIdentity();
+     	GL11.glEnable(GL11.GL_TEXTURE_2D);
 		while(!Display.isCloseRequested()){
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT);
 			GL11.glClearColor(0, 0, 0, 1);

@@ -9,6 +9,8 @@ import org.newdawn.slick.opengl.TextureLoader;
 
 public class TextureBank {
 
+	public static Texture GRASS = loadTexture("graphics/test/aspnet.png");
+	
 	public static Texture loadTexture(String path){
 		Texture texture = null;
 		try {
