@@ -1,6 +1,6 @@
 package casino.main;
 
-public abstract class Instance {
+public class Camera {
 	protected int x,y,z = 0;
 	
 	public void update(){
@@ -8,6 +8,7 @@ public abstract class Instance {
 		draw();
 	}
 	
-	public abstract void tick();
-	public abstract void draw();
-}
+	public void tick(){}
+	public void draw(){}
+	
+}	
